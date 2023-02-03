@@ -1,12 +1,6 @@
 package ht3;
 import java.util.Comparator;
 
-public class MergeSort <T>{
-
-    public void sort(){
-
-    }
-
     class Merge {  
   
 /* Function to merge the subarrays of a[] */  
@@ -92,4 +86,4 @@ public static void main(String args[])
 }  
   
   } 
-}
+
