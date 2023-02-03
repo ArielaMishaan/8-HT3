@@ -30,6 +30,7 @@ public class Principal {
 
         Integer[] valores = new Integer[cantidad];
         Integer[] valoresQuicksort = new Integer [cantidad];
+        Integer[] valoresGnomeSort = new Integer[cantidad];
 
         //Comparación usando BubbleSort
 
@@ -76,9 +77,29 @@ public class Principal {
             System.out.println("[" + i + "] => " + valoresQuicksort[i]);
         }
 
-        //Comparación usando MergeSort
-
         //Comparación usando GnomeSort
+        
+        for (int i = 0; i < cantidad; i++) {
+            valoresGnomeSort[i] = (int) (Math.floor(Math.random() * (1000)));
+        }
+
+        GnomeSort<Integer> gnomeSort = new GnomeSort<Integer>();
+        System.out.println("\nNÚMEROS DESORDENADOS (GNOMESORT)");
+
+        for(int i = 0; i < valoresGnomeSort.length; i++){
+            System.out.println("[" + i + "] => " + valoresGnomeSort[i]);
+        }
+
+        System.out.println("ORDENANDO...");
+        quickSort.quickSort(valoresGnomeSort, 0, valoresGnomeSort.length - 1, new ComparadorEnteros<Integer>());
+        System.out.println("\nNÚMEROS ORDENADOS GNOMESORT: ");
+        
+        for(int i = 0; i < valoresGnomeSort.length; i++){
+            System.out.println("[" + i + "] => " + valoresGnomeSort[i]);
+        }
+
+
+        //Comparación usando MergeSort
 
         //Comparación usando RadixSort
 

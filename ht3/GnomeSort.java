@@ -2,40 +2,38 @@ package ht3;
 import java.util.Comparator;
 
 // Java Program to implement Gnome Sort
+/*
+ * Code Contributed by Mohit Gupta_OMG
+ * Código tomado de un ejemplo en GeeksForGeeks.org en:
+ * https://www.geeksforgeeks.org/java-program-for-gnome-sort/
+ * 
+ * 
+ */
 
 import java.util.Arrays;
 public class GnomeSort <T> {
-static void gnomeSort(int arr[], int n)
-{
-int index = 0;
 
-while (index < n) {
-if (index == 0)
-	index++;
-if (arr[index] >= arr[index - 1])
-	index++;
-else {
-	int temp = 0;
-	temp = arr[index];
-	arr[index] = arr[index - 1];
-	arr[index - 1] = temp;
-	index--;
-}
-}
-return;
-}
+    public void gnomeSort(T[] arreglo, Comparator<T> comparador, int num){
+    int index = 0;
 
-// Driver program to test above functions.
-public static void main(String[] args)
-{
-int arr[] = { 34, 2, 10, -9 };
+    while (index < num) {
+    if (index == 0)
+        index++;
 
-gnomeSort(arr, arr.length);
+    if(comparador.compare(arreglo[index], arreglo[index-1])>= 0){
+        index ++;
+    }
 
-System.out.print("Sorted sequence after applying Gnome sort: ");
-System.out.println(Arrays.toString(arr));
-}
+    else {
+        T temp = null;
+        temp = arreglo[index];
+        arreglo[index] = arreglo[index - 1];
+        arreglo[index - 1] = temp;
+        index--;
+    }
+    }
+    return;
+    }
 }
 
-// Code Contributed by Mohit Gupta_OMG
 
