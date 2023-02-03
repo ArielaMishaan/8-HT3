@@ -1,4 +1,4 @@
-package ht3;
+//package ht3;
 import java.util.Comparator;
 
     class Merge {  

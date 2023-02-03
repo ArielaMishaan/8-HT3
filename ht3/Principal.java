@@ -1,11 +1,12 @@
-package ht3;
+//package ht3;
 import java.util.Scanner;
+//import ht3.*;
 
 public class Principal {
     public static void main(String[] args) {
 
         Scanner teclado = new Scanner (System.in);
-        
+         
         System.out.println("\n¿Cuántos valores desea generar? (Máximo 3000)");
         boolean entradaIncorrecta = true;
         int cantidad = 0;
