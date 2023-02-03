@@ -8,87 +8,68 @@ import java.util.Comparator;
 
 public class MergeSort<T> {  
   
-/* Function to merge the subarrays of a[] */  
-void merge(T[] arreglo, int inicio, int mitad, int fin)    
-{    
-    int i, j, k;  
-    int n1 = mitad - inicio + 1;    
-    int n2 = fin - mitad;    
-      
-    /* arreglos temporales */  
-        int LeftArray[] = new int[n1];  
-        int RightArray[] = new int[n2];  
-      
-    /* copy data to temp arrays */  
-    for (i = 0; i < n1; i++)    
-    LeftArray[i] = a[beg + i];    
-    for (j = 0; j < n2; j++)    
-    RightArray[j] = a[mid + 1 + j];    
-      
-    i = 0; /* initial index of first sub-array */  
-    j = 0; /* initial index of second sub-array */   
-    k = beg;  /* initial index of merged sub-array */  
-      
-    while (i < n1 && j < n2)    
-    {    
-        if(LeftArray[i] <= RightArray[j])    
-        {    
-            a[k] = LeftArray[i];    
+    /* Función para juntar los subarreglos */  
+    public void merge(T[] arreglo, Comparator<T> comparador){    
+        int i, j, k; 
+        int inicio = 0;
+        int mitad = (arreglo.length-1)/2;
+        int fin = arreglo.length -1;
+
+
+        int n1 = mitad - inicio + 1;    
+        int n2 = fin - mitad;    
+        
+        /* arreglos temporales */ 
+        T[] arregloIzquierdo = (T[]) new Object [n1];
+        T[] arregloDerecho = (T[]) new Object [n2]; 
+
+        /* copiar la información en los arreglos temporales */  
+
+        for(i = 0; i< n1; i++){
+            arregloIzquierdo[i] = arreglo[i + 1];
+        }
+        for(j = 0; j < n2; j++){
+            arregloDerecho[j] = arreglo[mitad + 1 + j];
+        }
+
+        i = 0; /* índice inicial del primer subarreglo*/  
+        j = 0; /* índice inicial del segundo subarreglo*/   
+        k = inicio;  /* índice inicial del subarreglo unido*/  
+        
+        while (i < n1 && j < n2){
+            
+            if(comparador.compare(arregloIzquierdo[i], arregloDerecho[j]) <= 0){
+                arreglo[k] = arregloIzquierdo[i];
+                i++;
+            }
+            else{    
+                arreglo[k] = arregloDerecho[j];    
+                j++;    
+            }    
+
+            k++;    
+        }  
+
+        while (i<n1){    
+            arreglo[k] = arregloIzquierdo[i];    
             i++;    
+            k++;    
         }    
-        else    
+        
+        while (j<n2)    
         {    
-            a[k] = RightArray[j];    
+            arreglo[k] = arregloDerecho[j];    
             j++;    
-        }    
-        k++;    
+            k++;    
+        }
+        
+        
     }    
-    while (i<n1)    
-    {    
-        a[k] = LeftArray[i];    
-        i++;    
-        k++;    
-    }    
-      
-    while (j<n2)    
-    {    
-        a[k] = RightArray[j];    
-        j++;    
-        k++;    
-    }    
-}    
-  
-void mergeSort(int a[], int beg, int end)  
-{  
-    if (beg < end)   
-    {  
-        int mid = (beg + end) / 2;  
-        mergeSort(a, beg, mid);  
-        mergeSort(a, mid + 1, end);  
-        merge(a, beg, mid, end);  
+    
+    void mergeSort(T[] arreglo, Comparator<T> comparador){   
+        mergeSort(arreglo, comparador); 
+        merge(arreglo, comparador);
+          
     }  
-}  
-  
-/* Function to print the array */  
-void printArray(int a[], int n)  
-{  
-    int i;  
-    for (i = 0; i < n; i++)  
-        System.out.print(a[i] + " ");  
-}  
-  
-public static void main(String args[])  
-{  
-    int a[] = { 11, 30, 24, 7, 31, 16, 39, 41 };  
-    int n = a.length;  
-    Merge m1 = new Merge();  
-    System.out.println("\nBefore sorting array elements are - ");  
-    m1.printArray(a, n);  
-    m1.mergeSort(a, 0, n - 1);  
-    System.out.println("\nAfter sorting array elements are - ");  
-    m1.printArray(a, n);  
-    System.out.println("");  
-}  
-  
   } 
 

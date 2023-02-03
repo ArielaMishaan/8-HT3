@@ -100,7 +100,7 @@ public class Principal {
         }
 
         System.out.println("ORDENANDO...");
-        quickSort.quickSort(valoresGnomeSort, 0, valoresGnomeSort.length - 1, new ComparadorEnteros<Integer>());
+        gnomeSort.gnomeSort(valoresGnomeSort, new ComparadorEnteros<Integer>(), valoresGnomeSort.length);
         System.out.println("\nNÚMEROS ORDENADOS GNOMESORT: ");
         
         for(int i = 0; i < valoresGnomeSort.length; i++){
@@ -122,7 +122,7 @@ public class Principal {
         }
 
         System.out.println("ORDENANDO...");
-        quickSort.quickSort(valoresMergeSort, 0, valoresMergeSort.length - 1, new ComparadorEnteros<Integer>());
+        mergeSort.mergeSort(valoresMergeSort, new ComparadorEnteros<Integer>());
         System.out.println("\nNÚMEROS ORDENADOS MERGESORT: ");
         
         for(int i = 0; i < valoresMergeSort.length; i++){
@@ -142,13 +142,13 @@ public class Principal {
             System.out.println("[" + i + "] => " + valoresRadix[i]);
         }
 
-        System.out.println("ORDENANDO...");
-        quickSort.quickSort(valoresRadix, 0, valoresRadix.length - 1, new ComparadorEnteros<Integer>());
-        System.out.println("\nNÚMEROS ORDENADOS RADIXSORT: ");
+        //System.out.println("ORDENANDO...");
+        //quickSort.quickSort(valoresRadix, 0, valoresRadix.length - 1, new ComparadorEnteros<Integer>());
+        //System.out.println("\nNÚMEROS ORDENADOS RADIXSORT: ");
         
-        for(int i = 0; i < valoresRadix.length; i++){
-            System.out.println("[" + i + "] => " + valoresRadix[i]);
-        }
+        //for(int i = 0; i < valoresRadix.length; i++){
+        //    System.out.println("[" + i + "] => " + valoresRadix[i]);
+        //}
 
     }
 }
