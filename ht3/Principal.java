@@ -1,6 +1,11 @@
-//package ht3;
 import java.util.Scanner;
-//import ht3.*;
+/*
+* Alina Carías (22539), Ignacio Méndez (22613), Ariela Mishaan (22052), Diego Soto (22737)
+ * Algoritmos y Estructuras de Datos Sección 40
+ * Hoja de Trabajo 3
+ * 03-02-2023
+ * Clase Princiapl: Es la clase que interactua con el usuario y permite que todos los sorts se puedan visualizar.
+ */
 
 public class Principal {
     public static void main(String[] args) {
@@ -101,6 +106,25 @@ public class Principal {
 
 
         //Comparación usando MergeSort
+
+        for (int i = 0; i < cantidad; i++) {
+            valoresGnomeSort[i] = (int) (Math.floor(Math.random() * (1000)));
+        }
+
+        GnomeSort<Integer> gnomeSort = new GnomeSort<Integer>();
+        System.out.println("\nNÚMEROS DESORDENADOS (GNOMESORT)");
+
+        for(int i = 0; i < valoresGnomeSort.length; i++){
+            System.out.println("[" + i + "] => " + valoresGnomeSort[i]);
+        }
+
+        System.out.println("ORDENANDO...");
+        quickSort.quickSort(valoresGnomeSort, 0, valoresGnomeSort.length - 1, new ComparadorEnteros<Integer>());
+        System.out.println("\nNÚMEROS ORDENADOS GNOMESORT: ");
+        
+        for(int i = 0; i < valoresGnomeSort.length; i++){
+            System.out.println("[" + i + "] => " + valoresGnomeSort[i]);
+        }
 
         //Comparación usando RadixSort
 
