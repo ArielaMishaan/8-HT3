@@ -37,6 +37,9 @@ public class Principal {
         Integer[] valores = new Integer[cantidad];
         Integer[] valoresQuicksort = new Integer [cantidad];
         Integer[] valoresGnomeSort = new Integer[cantidad];
+        Integer[] valoresMergeSort = new Integer[cantidad];
+        Integer[] valoresRadix = new Integer[cantidad];
+
 
         //Comparación usando BubbleSort
 
@@ -108,26 +111,44 @@ public class Principal {
         //Comparación usando MergeSort
 
         for (int i = 0; i < cantidad; i++) {
-            valoresGnomeSort[i] = (int) (Math.floor(Math.random() * (1000)));
+            valoresMergeSort[i] = (int) (Math.floor(Math.random() * (1000)));
         }
 
-        GnomeSort<Integer> gnomeSort = new GnomeSort<Integer>();
-        System.out.println("\nNÚMEROS DESORDENADOS (GNOMESORT)");
+        MergeSort<Integer> mergeSort = new MergeSort<Integer>();
+        System.out.println("\nNÚMEROS DESORDENADOS (MERGESORT)");
 
-        for(int i = 0; i < valoresGnomeSort.length; i++){
-            System.out.println("[" + i + "] => " + valoresGnomeSort[i]);
+        for(int i = 0; i < valoresMergeSort.length; i++){
+            System.out.println("[" + i + "] => " + valoresMergeSort[i]);
         }
 
         System.out.println("ORDENANDO...");
-        quickSort.quickSort(valoresGnomeSort, 0, valoresGnomeSort.length - 1, new ComparadorEnteros<Integer>());
-        System.out.println("\nNÚMEROS ORDENADOS GNOMESORT: ");
+        quickSort.quickSort(valoresMergeSort, 0, valoresMergeSort.length - 1, new ComparadorEnteros<Integer>());
+        System.out.println("\nNÚMEROS ORDENADOS MERGESORT: ");
         
-        for(int i = 0; i < valoresGnomeSort.length; i++){
-            System.out.println("[" + i + "] => " + valoresGnomeSort[i]);
+        for(int i = 0; i < valoresMergeSort.length; i++){
+            System.out.println("[" + i + "] => " + valoresMergeSort[i]);
         }
 
         //Comparación usando RadixSort
 
+        for (int i = 0; i < cantidad; i++) {
+            valoresRadix[i] = (int) (Math.floor(Math.random() * (1000)));
+        }
+
+        Radix<Integer> radixSort = new Radix<Integer>();
+        System.out.println("\nNÚMEROS DESORDENADOS (RADIXSORT)");
+
+        for(int i = 0; i < valoresRadix.length; i++){
+            System.out.println("[" + i + "] => " + valoresRadix[i]);
+        }
+
+        System.out.println("ORDENANDO...");
+        quickSort.quickSort(valoresRadix, 0, valoresRadix.length - 1, new ComparadorEnteros<Integer>());
+        System.out.println("\nNÚMEROS ORDENADOS RADIXSORT: ");
+        
+        for(int i = 0; i < valoresRadix.length; i++){
+            System.out.println("[" + i + "] => " + valoresRadix[i]);
+        }
 
     }
 }

@@ -1,10 +1,10 @@
 //package ht3;
 import java.util.Comparator;
 
-    class Merge {  
+    class MergeSort<T> {  
   
 /* Function to merge the subarrays of a[] */  
-void merge(int a[], int beg, int mid, int end)    
+void MergeSort(int a[], int beg, int mid, int end)    
 {    
     int i, j, k;  
     int n1 = mid - beg + 1;    
@@ -60,7 +60,7 @@ void mergeSort(int a[], int beg, int end)
         int mid = (beg + end) / 2;  
         mergeSort(a, beg, mid);  
         mergeSort(a, mid + 1, end);  
-        merge(a, beg, mid, end);  
+        MergeSort(a, beg, mid, end); 
     }  
 }  
   
@@ -76,7 +76,7 @@ public static void main(String args[])
 {  
     int a[] = { 11, 30, 24, 7, 31, 16, 39, 41 };  
     int n = a.length;  
-    Merge m1 = new Merge();  
+    MergeSort m1 = new MergeSort();  
     System.out.println("\nBefore sorting array elements are - ");  
     m1.printArray(a, n);  
     m1.mergeSort(a, 0, n - 1);  
