@@ -1,149 +1,77 @@
 //package ht3;
 
 /*
- * Código obtenido de javaTPoint.com
+ * Código obtenido de Programiz.com:
+ * https://www.programiz.com/java-programming/examples/merge-sort 
  */
 
 import java.util.Comparator;
+import java.util.Arrays;
 
-/*
- * public class MergeSort<T> {  
-  
-    //Función para juntar los subarreglos
-    public void merge(T[] arreglo, Comparator<T> comparador){    
-        int i, j, k; 
-        int inicio = 0;
-        int mitad = (arreglo.length-1)/2;
-        int fin = arreglo.length -1;
+public class MergeSort<T> {
 
+  // Convertir el arreglo en dos subarreglos: listaIzquierda y listaDerecha
+  void merge(T[] arreglo, int inicio, int mitad, int fin, Comparator<T> comparador) {
 
-        //int n1 = mitad - inicio + 1;    
-        //int n2 = fin - mitad;    
+    int n1 = mitad - inicio + 1;
+    int n2 = fin - mitad;
+    Comparator <T> comparador2 = new ComparadorEnteros<>();
 
-        int n1 = mitad;
-        int n2 = fin;
-        
-        //arreglos temporales  
+    T[] listaIzquierda = (T[]) new Object[n1];
+    T[] listaDerecha = (T[]) new Object[n2];
 
-        T[] arregloIzquierdo = (T[]) new Object [n1];
-        T[] arregloDerecho = (T[]) new Object [n2-n1]; 
+    // llenar el arreglo izquierdo y el derecho
+    for (int i = 0; i < n1; i++)
+      listaIzquierda[i] = (T) arreglo[inicio + i];
+    for (int j = 0; j < n2; j++)
+      listaDerecha[j] = (T) arreglo[mitad + 1 + j];
 
-        //copiar la información en los arreglos temporales  
+    // mantener el índice actual de subarreglos y el arreglo principal 
+    int i, j, k;
+    i = 0;
+    j = 0;
+    k = inicio;
 
-        for(i = 0; i< (n1-1); i++){
-            arregloIzquierdo[i] = arreglo[i];
-        }
+    //Hasta que se alcanze el fin del arreglo izquierdo o el del derecho, se escoge un elemento mayor de las dos listas y se pone en la posición correcta.
+    while (i < n1 && j < n2) {
+      if (comparador.compare(listaIzquierda[i], listaDerecha[j]) <= 0) {
+        arreglo[k] = listaIzquierda[i];
+        i++;
+      } else {
+        arreglo[k] = listaDerecha[j];
+        j++;
+      }
+      k++;
+    }
 
-        for(j = n1 + 1; j < (n2-1); j++){
-            int l = 0;
-            arregloDerecho[l] = arreglo[j];
-            l ++;
-        }
+    while (i < n1) {
+      arreglo[k] = listaIzquierda[i];
+      i++;
+      k++;
+    }
 
-        i = 0; //índice inicial del primer subarreglo  
-        j = 0; // índice inicial del segundo subarreglo
-        k = inicio;  //índice inicial del subarreglo unido 
-        
-        while (i < n1 && j < n2){
-            
-            if(comparador.compare(arregloIzquierdo[i], arregloDerecho[j]) <= 0){
-                arreglo[k] = arregloIzquierdo[i];
-                i++;
-            }
-            else{    
-                arreglo[k] = arregloDerecho[j];    
-                j++;    
-            }    
+    while (j < n2) {
+      arreglo[k] = listaDerecha[j];
+      j++;
+      k++;
+    }
+  }
 
-            k++;    
-        }  
+  //Dividir el arreglo en dso subarreglos, ordenarlos y volverlos a unir. 
+  // Divide the array into two sub arrays, sort them and merge them
+  public void mergeSort(T[] arreglo, int izquierdo, int derecho) {
+    if (izquierdo < derecho) {
 
-        while (i<n1){    
-            arreglo[k] = arregloIzquierdo[i];    
-            i++;    
-            k++;    
-        }    
-        
-        while (j<n2)    
-        {    
-            arreglo[k] = arregloDerecho[j];    
-            j++;    
-            k++;    
-        }
-        
-        
-    }    
-    
-    void mergeSort(T[] arreglo, Comparator<T> comparador){   
-        merge(arreglo, comparador);
-          
-    }  
-  } 
- */
+      // mid es el punto en el que el arreglo se divide en dos subarreglos 
+      int mid = (izquierdo + derecho) / 2;
 
- import java.util.Comparator;
+      // llamada recursiva a cada uno de los subarreglos
+      mergeSort(arreglo, izquierdo, mid);
+      mergeSort(arreglo, mid + 1, derecho);
 
- public class MergeSort<T> {  
-   
-     /* Función para juntar los subarreglos */  
-     public void merge(T[] arreglo, int inicio, int fin, Comparator<T> comparador){    
-         int i, j, k; 
-         int mitad = (inicio + fin) / 2;
-         
-         int n1 = mitad - inicio + 1;
-         int n2 = fin - mitad;
-         
-         /* arreglos temporales */ 
-         T[] arregloIzquierdo = (T[]) new Object [n1];
-         T[] arregloDerecho = (T[]) new Object [n2]; 
- 
-         /* copiar la información en los arreglos temporales */  
-         for(i = 0; i < n1; i++) {
-             arregloIzquierdo[i] = arreglo[inicio + i];
-         }
- 
-         for(j = 0; j < (n2-1); j++) {
-             arregloDerecho[j] = arreglo[mitad + 1 + j];
-         }
- 
-         i = 0; /* índice inicial del primer subarreglo*/  
-         j = 0; /* índice inicial del segundo subarreglo*/   
-         k = inicio;  /* índice inicial del subarreglo unido*/  
-         
-         while (i < n1 && j < n2){
-             
-             if(comparador.compare(arregloIzquierdo[i], arregloDerecho[j]) <= 0){
-                 arreglo[k] = arregloIzquierdo[i];
-                 i++;
-             }
-             else{    
-                 arreglo[k] = arregloDerecho[j];    
-                 j++;    
-             }    
-             k++;    
-         }  
- 
-         while (i < n1){    
-             arreglo[k] = arregloIzquierdo[i];    
-             i++;    
-             k++;    
-         }    
-         
-         while (j < n2) {    
-             arreglo[k] = arregloDerecho[j];    
-             j++;    
-             k++;    
-         }
-         
-     }    
-     
-     public void mergeSort(T[] arreglo, int inicio, int fin, Comparator<T> comparador){   
-         if (inicio < fin) {
-             int mitad = (inicio + fin) / 2;
-             mergeSort(arreglo, inicio, mitad, comparador);
-             mergeSort(arreglo, mitad + 1, fin, comparador);
-             merge(arreglo, inicio, fin, comparador);
-         }
-     }  
- } 
- 
+      Comparator<T> comparador2 = new ComparadorEnteros();
+    // unir los dos arreglos ya ordenados.
+      merge(arreglo, izquierdo, mid, derecho, comparador2);
+    }
+  }
+}

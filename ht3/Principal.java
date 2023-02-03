@@ -122,7 +122,7 @@ public class Principal {
         }
 
         System.out.println("ORDENANDO...");
-        mergeSort.mergeSort(valoresMergeSort, 0, valoresMergeSort.length, new ComparadorEnteros<Integer>());
+        mergeSort.mergeSort(valoresMergeSort, 0, valoresMergeSort.length-1);
         System.out.println("\nNÚMEROS ORDENADOS MERGESORT: ");
         
         for(int i = 0; i < valoresMergeSort.length; i++){
