@@ -1,16 +1,21 @@
 //package ht3;
+
+/*
+ * Código obtenido de javaTPoint.com
+ */
+
 import java.util.Comparator;
 
-    class Merge {  
+public class MergeSort<T> {  
   
 /* Function to merge the subarrays of a[] */  
-void merge(int a[], int beg, int mid, int end)    
+void merge(T[] arreglo, int inicio, int mitad, int fin)    
 {    
     int i, j, k;  
-    int n1 = mid - beg + 1;    
-    int n2 = end - mid;    
+    int n1 = mitad - inicio + 1;    
+    int n2 = fin - mitad;    
       
-   /* temporary Arrays */  
+    /* arreglos temporales */  
         int LeftArray[] = new int[n1];  
         int RightArray[] = new int[n2];  
       
