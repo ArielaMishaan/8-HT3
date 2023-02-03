@@ -1,6 +1,11 @@
-//package ht3;
 import java.util.Comparator;
-
+/*
+* Alina Carías (22539), Ignacio Méndez (22613), Ariela Mishaan (22052), Diego Soto (22737)
+ * Algoritmos y Estructuras de Datos Sección 40
+ * Hoja de Trabajo 3
+ * 03-02-2023
+ * Clase QuickSort: ordena los elementos con el tipo de quicksort.
+ */
 /**
  * @author MAAG
  *
