@@ -251,7 +251,7 @@ public class Principal2 {
                         Radix<Integer> radixSort2 = new Radix<Integer>();
 
                         System.out.println("\nORDENANDO...");
-                        radixSort.radixSort(valoresRadix2, valoresRadix2.length, new ComparadorEnteros<Integer>());
+                        radixSort2.radixSort(valoresRadix2, valoresRadix2.length, new ComparadorEnteros<Integer>());
                         System.out.println("\nNÚMEROS ORDENADOS RADIXSORT: ");
                         
                         for(int i = 0; i < valoresRadix2.length; i++){
