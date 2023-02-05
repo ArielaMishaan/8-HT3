@@ -133,10 +133,10 @@ public class Principal2 {
 
                         //Comparación usando RadixSort
 
-                        RadixEnteros radixSort = new RadixEnteros();
+                        Radix<Integer> radixSort = new Radix<Integer>();
 
                         System.out.println("\nORDENANDO...");
-                        radixSort.radixSort(valoresRadix, valoresRadix.length - 1);
+                        radixSort.radixSort(valoresRadix, valoresRadix.length, new ComparadorEnteros<Integer>());
                         System.out.println("\nNÚMEROS ORDENADOS RADIXSORT: ");
                         
                         for(int i = 0; i < valoresRadix.length; i++){
@@ -248,10 +248,10 @@ public class Principal2 {
 
                         //Comparación usando RadixSort
 
-                        RadixEnteros radixSort2 = new RadixEnteros();
+                        Radix<Integer> radixSort2 = new Radix<Integer>();
 
                         System.out.println("\nORDENANDO...");
-                        radixSort2.radixSort(valoresRadix2, valoresRadix2.length - 1);
+                        radixSort.radixSort(valoresRadix2, valoresRadix2.length, new ComparadorEnteros<Integer>());
                         System.out.println("\nNÚMEROS ORDENADOS RADIXSORT: ");
                         
                         for(int i = 0; i < valoresRadix2.length; i++){
