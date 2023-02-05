@@ -2,82 +2,76 @@
 import java.util.Comparator;
 import java.io.*;
 import java.util.*;
-/*
-* Alina Carías (22539), Ignacio Méndez (22613), Ariela Mishaan (22052), Diego Soto (22737)
- * Algoritmos y Estructuras de Datos Sección 40
- * Hoja de Trabajo 3
- * 03-02-2023
- * Clase RadixSort: ordena los elementos con el tipo de RadixSort.
- */
+// /*
+// * Alina Carías (22539), Ignacio Méndez (22613), Ariela Mishaan (22052), Diego Soto (22737)
+//  * Algoritmos y Estructuras de Datos Sección 40
+//  * Hoja de Trabajo 3
+//  * 03-02-2023
+//  * Clase RadixSort: ordena los elementos con el tipo de RadixSort.
+//  */
 
-// Java Program to implement Radix Sort 
-/*
- * Código tomado de un ejemplo en Programiz en:
- * https://www.programiz.com/dsa/radix-sort
- */
+// // Java Program to implement Radix Sort 
+// /*
+//  * Código tomado de un ejemplo en Programiz en:
+//  * https://www.programiz.com/dsa/radix-sort
+//  */
 
 public class Radix <T>{
 
-    // Using counting sort to sort the elements in the basis of significant places
-    public void countingSort(T MyArray[], int size, int place, Comparator<T> myCompare) {
-        T[] output = (T[]) new Object[size + 1];
-        T max = MyArray[0];
-        T actual = MyArray[0];
-        int act = 0;
-        for (int i = 1; i < size; i++) {
-            actual = MyArray[i];
-            if (myCompare.compare(actual, max) >= 0)
-                max = actual;
-        }
-        int maximo = Integer.valueOf((String) max);
-        int[] count = new int[maximo + 1];
+	// A utility function to get maximum value in arr[]
+	public T getMax(T arr[], int n, Comparator<T> myCompare)
+	{
+        T max = arr [0];
+        T actual = null;
 
-        for (int i = 0; i < maximo; ++i)
-        count[i] = 0;
-
-        // Calculate count of elements
-        for (int i = 0; i < size; i++)
-            actual = MyArray[i];
-            act = Integer.valueOf((String) actual);
-            count[(act / place) % 10]++;
-
-        // Calculate cumulative count
-        for (int i = 1; i < 10; i++)
-        count[i] += count[i - 1];
-
-        // Place the elements in sorted order
-        for (int i = size - 1; i >= 0; i--) {
-            actual = MyArray[i];
-            act = Integer.valueOf((String) actual);
-            output[count[(act / place) % 10] - 1] = MyArray[i];
-            count[(act / place) % 10]--;
-        }
-
-        for (int i = 0; i < size; i++)
-            MyArray[i] = output[i];
-    }
-
-    // Function to get the largest element from an array
-    public T getMax(T MyArray[], int n, Comparator<T> myCompare) {
-        T max = MyArray[0];
-        T actual = MyArray[0];
         for (int i = 1; i < n; i++)
-            actual = MyArray[i];
+            actual = arr[i];
             if (myCompare.compare(actual, max) >= 0)
                 max = actual;
         return max;
-    }
+	}
 
-    // Main function to implement radix sort
-    public void radixSort(T MyArray[], int size, Comparator<T> myCompare) {
-        // Get maximum element
-        T max = getMax(MyArray, size, myCompare);
-        int maximo = Integer.valueOf((String) max);
+	// A function to do counting sort of arr[] according to
+	// the digit represented by exp.
+	public void countSort(T arr[], int n, int exp, Comparator<T> myCompare)
+	{
+        T[] output = (T[]) new Object[n];
+        int i;
+        int[] count = new int[999];
+        Arrays.fill(count, 0);
 
-        // Apply counting sort to sort elements based on place value.
-        for (int place = 1; maximo / place > 0; place *= 10)
-        countingSort(MyArray, size, place, myCompare);
-    }
+		// Store count of occurrences in count[]
+		for (i = 0; i < n; i++) count[((int) arr[i] / exp) % 10]++;
 
+		// Change count[i] so that count[i] now contains
+		// actual position of this digit in output[]
+		for (i = 1; i < 999; i++) count[i] += count[i - 1];
 
+		// Build the output array
+		for (i = n - 1; i >= 0; i--) {
+			output[count[((int) arr[i] / exp) % 10] - 1] = arr[i];
+			count[((int) arr[i] / exp) % 10]--;
+		}
+
+		// Copy the output array to arr[], so that arr[] now
+		// contains sorted numbers according to current
+		// digit
+		for (i = 0; i < n; i++)
+			arr[i] = output[i];
+	}
+
+	// The main function to that sorts arr[] of
+	// size n using Radix Sort
+	public void radixSort(T arr[], int n, Comparator<T> myCompare)
+	{
+		// Find the maximum number to know number of digits
+        T max = getMax(arr, n, myCompare);
+        int maximo = (int) max;
+
+		// Do counting sort for every digit. Note that
+		// instead of passing digit number, exp is passed.
+		// exp is 10^i where i is current digit number
+		for (int exp = 1; maximo / exp > 0; exp *= 10)
+			countSort(arr, n, exp, myCompare);
+	}
 }

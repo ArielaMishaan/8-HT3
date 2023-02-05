@@ -142,13 +142,13 @@ public class Principal {
             System.out.println("[" + i + "] => " + valoresRadix[i]);
         }
 
-        //System.out.println("ORDENANDO...");
-        //quickSort.quickSort(valoresRadix, 0, valoresRadix.length - 1, new ComparadorEnteros<Integer>());
-        //System.out.println("\nNÚMEROS ORDENADOS RADIXSORT: ");
+        System.out.println("ORDENANDO...");
+        radixSort.radixSort(valoresRadix, valoresRadix.length, new ComparadorEnteros<Integer>());
+        System.out.println("\nNÚMEROS ORDENADOS RADIXSORT: ");
         
-        //for(int i = 0; i < valoresRadix.length; i++){
-        //    System.out.println("[" + i + "] => " + valoresRadix[i]);
-        //}
+        for(int i = 0; i < valoresRadix.length; i++){
+            System.out.println("[" + i + "] => " + valoresRadix[i]);
+        }
 
     }
 }
