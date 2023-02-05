@@ -6,7 +6,6 @@
  */
 
 import java.util.Comparator;
-import java.util.Arrays;
 
 public class MergeSort<T> {
 
