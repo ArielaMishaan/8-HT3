@@ -15,6 +15,12 @@ import java.util.Comparator;
  */
 public class ComparadorEnteros<T> implements Comparator<T> {
 
+	
+	/** 
+	 * @param o1
+	 * @param o2
+	 * @return int
+	 */
 	@Override
 	public int compare(T o1, T o2) {
 		//return o1 - o2;

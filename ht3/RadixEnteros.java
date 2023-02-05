@@ -20,6 +20,12 @@ import java.util.Arrays;
 
 public class RadixEnteros{
 
+    
+    /** 
+     * @param arreglo[]
+     * @param size
+     * @param lugar
+     */
     public void countingSort(Integer arreglo[], int size, int lugar){
         Integer[] output = new Integer[size + 1];
         int maximo = arreglo[0];

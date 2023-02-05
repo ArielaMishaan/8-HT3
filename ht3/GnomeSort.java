@@ -20,6 +20,12 @@ import java.util.Comparator;
 import java.util.Arrays;
 public class GnomeSort <T> {
 
+    
+    /** 
+     * @param arreglo
+     * @param comparador
+     * @param num
+     */
     public void gnomeSort(T[] arreglo, Comparator<T> comparador, int num){
     int index = 0;
 

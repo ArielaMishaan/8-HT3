@@ -18,6 +18,13 @@ import java.util.*;
 
 public class Radix <T>{
 
+	
+	/** 
+	 * @param arr[]
+	 * @param n
+	 * @param myCompare
+	 * @return T
+	 */
 	// A utility function to get maximum value in arr[]
 	public T getMax(T arr[], int n, Comparator<T> myCompare)
 	{
