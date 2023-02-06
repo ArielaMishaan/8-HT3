@@ -19,8 +19,8 @@ class SortTest {
 	BubbleSort<Integer> Bubble = new BubbleSort<Integer>();
 	GnomeSort<Integer> Gnome = new GnomeSort<Integer>();
 	MergeSort<Integer> Merge = new MergeSort<Integer>();
-	QuickSort Quick = new QuickSort<>();
-	Radix Radix = new Radix<>();
+	QuickSort<Integer> Quick = new QuickSort<Integer>();
+	Radix<Integer> Radix = new Radix<Integer>();
 	Integer[] desordenados = new Integer[3];
 	Integer[] ordenados = new Integer[3];
 	
@@ -84,24 +84,40 @@ class SortTest {
 
 	@Test
 	void QuickTest() {
-		QuickSort Quick = new QuickSort<>();
-		ArrayList<String> lista =  new ArrayList<>();
-		lista.add("7");
-		lista.add("9");
-		lista.add("*");
-		int resultado = calculadora.Calculate(lista);
-		assertEquals(63, resultado);
+		QuickSort<Integer> Quick = new QuickSort<Integer>();
+		Integer[] desordenados = new Integer[3];
+		desordenados[0] = Integer.valueOf(2);
+		desordenados[1] = Integer.valueOf(1);
+		desordenados[2] = Integer.valueOf(3);
+		int orden1 = 1;
+		int orden2 = 2;
+		int orden3 = 3;
+		Quick.quickSort(desordenados, 0, 2, new ComparadorEnteros<Integer>());
+		int primero = desordenados[0];
+		int segundo = desordenados[1];
+		int tercero = desordenados[2];
+		assertEquals(orden1, primero);
+		assertEquals(orden2, segundo);
+		assertEquals(orden3, tercero);
 	}
 
 	@Test
-	void RadixTest() throws Exception{
-		Radix Radix = new Radix<>();
-		ArrayList<String> lista =  new ArrayList<>();
-		lista.add("6");
-		lista.add("24");
-		lista.add("/");
-		int resultado = calculadora.Calculate(lista);
-		assertEquals(4, resultado);
+	void RadixTest() {
+		Radix<Integer> Radix = new Radix<Integer>();
+		Integer[] desordenados = new Integer[3];
+		desordenados[0] = Integer.valueOf(2);
+		desordenados[1] = Integer.valueOf(1);
+		desordenados[2] = Integer.valueOf(3);
+		int orden1 = 1;
+		int orden2 = 2;
+		int orden3 = 3;
+		Radix.radixSort(desordenados, 3, new ComparadorEnteros<Integer>());
+		int primero = desordenados[0];
+		int segundo = desordenados[1];
+		int tercero = desordenados[2];
+		assertEquals(orden1, primero);
+		assertEquals(orden2, segundo);
+		assertEquals(orden3, tercero);
 	}
 
 }
