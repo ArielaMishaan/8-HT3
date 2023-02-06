@@ -17,8 +17,8 @@ public class ComparadorEnteros<T> implements Comparator<T> {
 
 	
 	/** 
-	 * @param o1
-	 * @param o2
+	 * @param o1 El primer parámetro que va a comparar. 
+	 * @param o2 El segundo parámetro, que comparará con el primero
 	 * @return int
 	 */
 	@Override

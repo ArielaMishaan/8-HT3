@@ -28,7 +28,7 @@ public class Archivo {
     
     
     /** 
-     * @param linea
+     * @param linea Recibe la línea que tiene que escribir.
      */
     public void escribirArchivo(String linea){
         try {
@@ -43,7 +43,7 @@ public class Archivo {
 
     
     /** 
-     * @param linea
+     * @param linea la línea que tiene que escribir
      */
     public void escribirArchivo2(String linea){
         try {
@@ -58,7 +58,7 @@ public class Archivo {
 
     
     /** 
-     * @return ArrayList<String>
+     * @return ArrayList<String> 
      */
     public ArrayList<String> leerArchivo(){
         Scanner miLector;

@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Principal2 {
     
     /** 
-     * @param args
+     * @param args 
      */
     public static void main(String[] args) {
 

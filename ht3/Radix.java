@@ -20,9 +20,9 @@ public class Radix <T>{
 
 	
 	/** 
-	 * @param arr[]
-	 * @param n
-	 * @param myCompare
+	 * @param arr[] el arreglo que va a ordenar
+	 * @param n 
+	 * @param myCompare Un objeto que implementa la clase comparador en la cual se toman que si el primero es menor entonces retorna un número positivo, si es menor negativo y si es igual 0
 	 * @return T
 	 */
 	// A utility function to get maximum value in arr[]

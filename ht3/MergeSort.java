@@ -17,11 +17,11 @@ public class MergeSort<T> {
 
   
   /** 
-   * @param arreglo
-   * @param inicio
-   * @param mitad
-   * @param fin
-   * @param comparador
+   * @param arreglo el arreglo que va a ordenar 
+   * @param inicio el inicio del arreglo
+   * @param mitad la mitad del arreglo
+   * @param fin el último elemento del arreglo
+   * @param comparador Un objeto que implementa la clase comparador en la cual se toman que si el primero es menor entonces retorna un número positivo, si es menor negativo y si es igual 0
    */
   // Convertir el arreglo en dos subarreglos: listaIzquierda y listaDerecha
   void merge(T[] arreglo, int inicio, int mitad, int fin, Comparator<T> comparador) {

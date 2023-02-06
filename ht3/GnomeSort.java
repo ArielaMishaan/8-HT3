@@ -22,8 +22,8 @@ public class GnomeSort <T> {
 
     
     /** 
-     * @param arreglo
-     * @param comparador
+     * @param arreglo el arreglo que va a ordenar
+     * @param comparador Un objeto que implementa la clase comparador en la cual se toman que si el primero es menor entonces retorna un número positivo, si es menor negativo y si es igual 0
      * @param num
      */
     public void gnomeSort(T[] arreglo, Comparator<T> comparador, int num){
