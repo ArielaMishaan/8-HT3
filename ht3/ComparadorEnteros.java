@@ -15,12 +15,6 @@ import java.util.Comparator;
  */
 public class ComparadorEnteros<T> implements Comparator<T> {
 
-	
-	/** 
-	 * @param o1 El primer parámetro que va a comparar. 
-	 * @param o2 El segundo parámetro, que comparará con el primero
-	 * @return int
-	 */
 	@Override
 	public int compare(T o1, T o2) {
 		//return o1 - o2;

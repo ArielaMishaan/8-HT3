@@ -1,28 +1,15 @@
 //package ht3;
-/*
-* Alina Carías (22539), Ignacio Méndez (22613), Ariela Mishaan (22052), Diego Soto (22737)
- * Algoritmos y Estructuras de Datos Sección 40
- * Hoja de Trabajo 3
- * 03-02-2023
- * Clase Princiapl: Es la clase que interactua con el usuario y permite que todos los sorts se puedan visualizar.
- */
+
 /*
  * Código obtenido de Programiz.com:
  * https://www.programiz.com/java-programming/examples/merge-sort 
  */
 
 import java.util.Comparator;
+import java.util.Arrays;
 
 public class MergeSort<T> {
 
-  
-  /** 
-   * @param arreglo el arreglo que va a ordenar 
-   * @param inicio el inicio del arreglo
-   * @param mitad la mitad del arreglo
-   * @param fin el último elemento del arreglo
-   * @param comparador Un objeto que implementa la clase comparador en la cual se toman que si el primero es menor entonces retorna un número positivo, si es menor negativo y si es igual 0
-   */
   // Convertir el arreglo en dos subarreglos: listaIzquierda y listaDerecha
   void merge(T[] arreglo, int inicio, int mitad, int fin, Comparator<T> comparador) {
 

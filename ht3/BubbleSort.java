@@ -17,8 +17,8 @@ public class BubbleSort<T> {
 	
 	
 	/** 
-	 * @param arreglo Este s un arreglo de genéricos, es el que va a ordenar
-	 * @param comparador Un objeto que implementa la clase comparador en la cual se toman que si el primero es menor entonces retorna un número positivo, si es menor negativo y si es igual 0
+	 * @param arreglo
+	 * @param comparador
 	 */
 	public void sort(T[] arreglo, Comparator<T> comparador) {
 		for (int i = 0; i < arreglo.length - 1; i++) {
